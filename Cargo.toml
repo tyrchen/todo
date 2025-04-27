@@ -1,0 +1,53 @@
+[package]
+name = "todo"
+version = "0.1.0"
+authors = ["Tyr Chen <tyr.chen@gmail.com>"]
+edition = "2024"
+license = "MIT"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "todo"
+path = "src/lib.rs"
+
+[dependencies]
+dioxus = { version = "0.6.0", features = ["router", "hooks"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+web-sys = { version = "0.3", features = [
+  "Storage",
+  "Window",
+  "MediaQueryList",
+  "MediaQueryListEvent",
+  "Document",
+  "Element",
+  "DomTokenList",
+], optional = true }
+wasm-bindgen = "0.2"
+rusqlite = { version = "0.35", optional = true }
+dirs = { version = "6", optional = true }
+dioxus-logger = "0.6.2"
+chrono = { version = "0.4", features = ["serde"] }
+dioxus-desktop = { version = "0.6.3", optional = true }
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3"
+
+[features]
+default = ["desktop"]
+web = ["dioxus/web", "web-sys"]
+desktop = ["dioxus/desktop", "rusqlite", "dirs", "dioxus-desktop"]
+mobile = ["dioxus/mobile"]
+
+[profile]
+
+[profile.wasm-dev]
+inherits = "dev"
+opt-level = 1
+
+[profile.server-dev]
+inherits = "dev"
+
+[profile.android-dev]
+inherits = "dev"
