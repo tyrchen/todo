@@ -2,7 +2,7 @@
 
 A feature-rich Todo application built with Dioxus, a React-like framework for Rust.
 
-![Dioxus Todo App Screenshot](assets/screenshot.png)
+![Dioxus Todo App Screenshot](assets/screenshot.jpg)
 
 ## Features
 

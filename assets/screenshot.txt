@@ -1,3 +1,0 @@
-This is a placeholder for the app screenshot.
-To create a real screenshot, run the app and capture the interface.
-Replace this file with screenshot.png in the assets directory.
